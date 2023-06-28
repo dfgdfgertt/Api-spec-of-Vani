@@ -1,0 +1,25 @@
+{
+  "name": "api-spec-of-vani",
+  "version": "1.0.0",
+  "description": "Api spec of Vani",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dfgdfgertt/Api-spec-of-Vani.git"
+  },
+  "author": "lucas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dfgdfgertt/Api-spec-of-Vani/issues"
+  },
+  "homepage": "https://github.com/dfgdfgertt/Api-spec-of-Vani#readme",
+  "dependencies": {
+    "asciidoctor": "^3.0.2",
+    "fs": "^0.0.1-security",
+    "pdf-to-text": "^0.0.7",
+    "pdf2json": "^3.0.4"
+  }
+}
