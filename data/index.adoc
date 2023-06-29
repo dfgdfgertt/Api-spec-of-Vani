@@ -200,7 +200,9 @@ vani System utilizes the information received in Step 1-2 to transmit the barcod
 [VN]Trong trường hợp thông tin khách hàng trùng khớp, ví dụ như trùng tên, số điện thoại, ngày tháng năm sinh, vani System sẽ sử dụng thông tin nhận được ở Bước 1-2 để truyền thông tin mã vạch của vani để liên kết thông tin khách hàng giữa 2 hệ thống với nhau. Nếu thông tin khách hang không trùng khớp, hệ thống vani sẽ yêu cầu đăng ký thành viên bằng thông tin của khách hàng trong hệ thống của vani. +
 [KO]--
 
-WARNING: Merchant’s Membership System must store the vani Barcode delivered by the vani System. +
+// image:https://static.vecteezy.com/system/resources/previews/012/042/292/original/warning-sign-icon-transparent-background-free-png.png[WARNING,50,50,title="Warning Icon"]
+
+WARNING:: Merchant’s Membership System must store the vani Barcode delivered by the vani System. +
 [VN]Merchant của Membership System phải lưu dữ liệu về vani Barcode được chuyển đến từ vani System. +
 [KO]Merchant Membership System vani System vani Barcode.
 
