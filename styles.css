@@ -1,0 +1,10 @@
+/* Kiểu chữ nhỏ */
+.small {
+    font-size: 8px;
+  }
+  
+  /* Kiểu chữ đậm */
+  .emphasis {
+    font-weight: bold;
+  }
+  

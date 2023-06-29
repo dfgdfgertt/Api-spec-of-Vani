@@ -1,15 +1,208 @@
-//
-// file: index.adoc
-//
-= Werner's Blog
+= Vani Development Specification
+Kyu Hou - houkyu@vanilacorp.com - Version 1.1.4, 2023-06-23
 :sectnums:
-:toc: left
+:toc:
 :toclevels: 3
 
+
+== Introduction
+
+The default language for this document is English.
+Vietnamese and Korean is also supported if necessary. +
+[KO] in front of a sentence indicates that the following sentence is Korean translation of previous sentence. Likewise +
+[VN] indicates Vietnamese.
+
+[VN]: Ngôn ngữ mặc định cho tài liệu này là tiếng Anh.Từ khóa [VN]đứng trước nội dung được chuyển ngữ sang tiếng Việt khi cần
+thiết. +
+
+[KO]: --- +
+
+This document is subject to continuous change as requested by vani Service evolution or a 3rd Party Membership. 
+Always refer to the latest version of the document.
+
+
+[VN]Văn bản này được liên tục cập nhật theo yêu cầu về sự phát triển về dịch vụ của vani hoặc yêu cầu của các bên Thành viên thứ 3.
+Hãy liên tục cập nhật phiên bản mới nhất của văn bản này.
+
+[KO]----
+
+
+== Version History
+It records the version and changes of documents that vani officially
+distributes.
+
+[width="100%",options="header",cols="1,5,1"]
+|====================
+| Version | Changes | Release Data(YYYY-MM-DD)  
+|1.0.0 
+|Initial Release. English & Korean support 
+|2021-09-23
+| 1.0.1 
+|A request parameter changed for Point history search |2021-10-07
+
+
+|1.0.2 
+|`*isVanilaBarcodeUsed*`
+ parameter added at `*/points-approval*` and `*/points-approval-bulk*`
+|2021-10-07
+
+| 1.0.3 
+|`*addressDetailInfo*` deleted in the response body of `*/check-user*` API
+|2021-12-17
+
+| 1.0.4 
+|`*DUP_MAIL*` error code defined in the `*/registration*` API 
+|2021-12-17
+
+| 1.0.5 
+| Vanila System’s domain name changed (vanila.me -> vani.la) 
+| 2021-12-30
+
+| 1.0.6 
+| Vanila System’s host name changed ( `*membership-test*`-> `*membership-api.test*`,`*membership*`-> `*membership-api*`) 
+| 2022-02-15
+
+| 1.0.7 
+| `*reason*` added in the request body of `*/disconnection*` API. `*totalPointAmount*` added in the response body of `*/points-refill*` and `*points-usage*` API.
+
+`*branch*` and `*totalPointAmount*` changed to mandatory field in `*/points-approval*` and `*/points-approval-bulk*` API
+|  2022-02-25
+
+| 1.0.8 
+| `*/points-cancellation*` API added
+|  2022-03-07
+| 1.0.9 
+|  Vietnamese Language added TIPs for `*/points-history-seach*` added
+|  2022-03-08
+| 1.0.10 
+|  Overview of online model added Name changed from Vanila to vani (API spec is not affected)
+|  2022-06-08
+| 1.0.11 
+| `*trafficType*` added at `*/points-approval*` and `*/points-approval-bulk*` API due to distinguishing between online traffic and offline traffic klub-la
+| 2022-07-06
+|====================
+
+== Ground Rule for API
+
+The API provided by vani and the API provided by Membership must follow the rules below.
+
+[VN]API được cung cấp bởi vani và API được cung cấp bởi đối tác Membership phải tuân theo những quy định sau
+
+=== API Protocol
+* All APIs must be provided based on JSON over HTTP.
+** Content-Type is and charset is `*utf-8*`
+* All API must support HTTPS.
+** Membership System must support `*TLS 1.2 or higher protocol*`
+
+=== Security
+* API requests should be authenticated via `*Basic Authentication*`. Therefore the request should include HTTP `*Authorization*` Header with `*Access Token*` issued by API owner which would be vani or 3rd Party Membership
+
+
+[source,JAVSCRIPT]
+----
+Authorization: Basic {Access Token}
+----
+
+* For security reasons, 3rd Party Membership should provide a domain name( ex. mydomain.com ) to the vani system. Vanils System manages the information.
+
+=== API Versioning
+
+The version of the API exists as vX.X after the Base URL. The current API version is v1.0.
+
+* The full URL configuration is {Base URL}/{api-version}/{endpoint} , so if the base URL is `*membership.yourdomain.com*`, the api-version is `*v1.0*`, and the endpoint is `*disconnection*`, the full URL configuration is as follows.
+
+Sample URL
+====
+https://membership.yourdomain.com/v1.0/disconnection
+====
+TIP: The `*base URL*` provided by vani System is defined in this documentation. 3rd Party Membership should provide `*base URL*` information to vani.  +
+
+=== API Performance
+Every API response time should be no longer than `*10 seconds*` +
+* In case when the API response time exceeds 10 seconds for a certain period of time, Vani System would pause requesting the API for a couple of minutes and then request again. +
+* If the delay continues, vani would notify the merchant and ask for fixing it. +
+
+== API Errors Handing
+Success or failure of all API requests should be known by +
+[VN]Thành công hay thất bại của tất cả các API request phải được xác nhận bằng +
+[KO] --- +
+
+=== Http Status Code
+HTTP Status Codes and their meanings are as follows. +
+[width="100%",options="header",cols="1,3"]
+|====================
+|HTTP Status Code| Meaning
+|200,201
+|Success
+|400
+|BAD-REQUEST - the request is invalid 
+|401
+|UNAUTHORIZED - API Token is not valid
+|403
+|FORBIDDEN - API Token is valid but no authorization
+|404
+|NOT FOUND - No resource
+|500,502,503,504 
+|SERVER ERROR - something wrong with Server
+|====================
+
+=== Error Response
+When an error occurs (HTTP Status Code is not 2XX), the following Error Object should be delivered in Json format. +
+[VN]Khi có lỗi (HTTP Status Code không phải là 2XX), Error Object phải được truyền tải dưới dạng Json format. +
+[KO] --  +
+
+
+.Error Object
+[width="100%",options="header",cols="1,3"]
+|====================
+|Property|Type|Always Exists|Description
+|errorCode
+|string
+|Yes
+|Server defined Error Code.
+|errorMessage
+|string
+|Yes
+|A detailed explanation of the errorCode. errorMessage *must be written in English*
+|====================
+
+.Sample Error Response
+[source,json]
+----
+{
+  "errorCode": "INSUFFICIENT_PARAMTER",
+  "errorMessage": "mobilePhoneNumber is mandatory"
+}
+----
+
+== Overview (Membership - Offline Model)
+This section describes the Main Scenario that must be linked with the vani System in the process of membership
+registration and use. +
+[VN]Phần này miêu tả những Main Scenario phải kết nối với vani System trong quá trình đăng ký và sử dụng membership. +
+[KO]membership vani System Main Scenario. +
+
+image::https://cdn.discordapp.com/attachments/882214636873736194/1123915976803623013/image.png[Overview]
+
+=== Membership Integration
+
+Step 1-1::
+Customers select a Membership (ex. L Point) that requires registration through the vani App. +
+[VN]Khách hàng chọn chương trình thành viên (vd. L Point) cần đăng ký qua ứng dụng vani App. +
+[KO] vani App Membership(ex. L point) .
+
+Step 1-2::
+The vani System verifies whether the membership system has customer information based on the customer information ( `*mobile phone number, date of birth*`) held by vani. If there is(are) matched customer(s) , the Membership System responds with additional information such as `*name*` and `*membership card number*`. +
+[VN]vani System xác minh Membership System đó có thông tin khách hàng hay không dựa trên thông tin khách hàng ( `số điện thoại di động, ngày sinh`) do vani nắm giữ. Nếu thông tin khách hàng trùng khớp, Membership System sẽ phản hồi với thông tin bổ sung như tên và số thẻ thành viên. +
+[KO] -- 
+
+Step 1-3::
+vani System utilizes the information received in Step 1-2 to transmit the barcode information of vani if there is a customer with the same name, mobile phone number, and date of birth to link customer information with each other. If there is no matching customer, the vani system requests registration for membership using the customer information you have. +
+[VN]Trong trường hợp thông tin khách hàng trùng khớp, ví dụ như trùng tên, số điện thoại, ngày tháng năm sinh, vani System sẽ sử dụng thông tin nhận được ở Bước 1-2 để truyền thông tin mã vạch của vani để liên kết thông tin khách hàng giữa 2 hệ thống với nhau. Nếu thông tin khách hang không trùng khớp, hệ thống vani sẽ yêu cầu đăng ký thành viên bằng thông tin của khách hàng trong hệ thống của vani. +
+[KO]--
+
+WARNING: Merchant’s Membership System must store the vani Barcode delivered by the vani System. +
+[VN]Merchant của Membership System phải lưu dữ liệu về vani Barcode được chuyển đến từ vani System. +
+[KO]Merchant Membership System vani System vani Barcode.
+
+
 :toc!:
-
-== Blogging with Github Pages and Asciidoc
-
-*2015-12-22*
-
-Although 2015 is quickly coming to and end, I look back on it fondly. It was a great year during which I learned a lot and discovered a few sofware gems, one of which is https://en.wikipedia.org/wiki/AsciiDoc[Asciidoc]. When you use Asciidoc to create documents you are https://medium.com/@chacon/living-the-future-of-technical-writing-2f368bd0a272#.ivrqucdon[Living the Future of Technical Writing]!
