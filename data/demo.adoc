@@ -1,7 +1,7 @@
 = Lucas's Blog
 Lucas - ngoclong.tran@vanilacorp.com - Version 1.0.0, 2023-07-01
 :sectnums:
-:toc: 
+:toc: left
 :toclevels: 3
 
 == Version History
