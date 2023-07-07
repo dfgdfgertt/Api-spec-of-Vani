@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Restricted Access"
-AuthUserFile /dev/null
-require valid-user
