@@ -3,137 +3,75 @@ Lucas - ngoclong.tran@vanilacorp.com - Version 1.0.0, 2023-07-01
 :sectnums:
 :toc: left
 :toclevels: 3
-
-== Version History
-
-[width="100%",options="header",cols="1,5,1"]
-|====================
-| Version | Changes | Release Data(YYYY-MM-DD)  
-|1.0.0 
-|Release new version
-|2023-07-01
-|
-| 
-|
-|
-|====================
-
-TIP: If have any question, you can contact email ngoclong.tran@vanilacorp.com
-
-== Blogging with Github Pages and Asciidoc
-
-*2015-12-22*
-
-Although 2015 is quickly coming to and end, I look back on it fondly. It was a great year during which I learned a lot and discovered a few sofware gems, one of which is https://en.wikipedia.org/wiki/AsciiDoc[Asciidoc]. When you use Asciidoc to create documents you are https://medium.com/@chacon/living-the-future-of-technical-writing-2f368bd0a272#.ivrqucdon[Living the Future of Technical Writing]! +
-During the last six months, I’ve written many documents using Asciidoc. Although Asciidoc documents can be written using any text editor, I’ve come to rely on https://www.asciidocfx.com/[AsciidocFX] as my writer’s tool of choice. Being one of the https://forums.oracle.com/ords/apexds/map/tech/discussion/4461508/dukes-choice-awards-2015#wfp[Duke’s Choice Award 2015] winners just solidifies AsciidocFX’s position as one of the premier Asciidoc authoring tools currently available. +
-The rest of this article describes how to create and manage a blog using GitHub, SmartGit, and Asciidoc: +
-
- * https://pages.github.com/[Github Pages] - host the Asciidoc text files on Github. +
- * https://www.syntevo.com/smartgit/[SmartGit 7.0.4] - use SmartGit to push changes from your laptop to Github. +
- * https://github.com/asciidocfx/AsciidocFX/releases[AsciidocFX 1.4.5] - use this authoring tool to create and edit the blog document. +
-
-=== Create repository
-Create a new repository at Github called _username_.github.io where username is your username on Github. See https://pages.github.com for detailed instructions on how to accomplish this step.
-
-This new repository will be accessible globally as http://_username_.github.io. For example my Github login is _wfouche_ and hence this blog is hosted at http://wfouche.github.io
-
-=== Clone repository
-SmartGit is a user-friendly front-end to Git, and can be used with Github and other Git hosting providers. SmartGit are for people who just wants to get on with the coding or editing task at hand without getting entangled in the intricacies of the Git command-line.
-
-From the SmartGit UI, select Repository / Clone to fetch the files in the Git repository (replace *username* with your specific Github username):
-
-* https://github.com/username/username.github.io.git
-
-=== Create blog files
-
-Create a file called *index.adoc* with AsciidocFX in the local Git folder.
-[source,ascii]
-----
-//
-// file: index.adoc
-//
-= Werner's Blog
-:sectnums:ii
-:toc: left
-:toclevels: 3
-
-:toc!:
-
-== Blogging with Github Pages and Asciidoc
-
-*2015-12-22*
-
-Although 2015 is quickly coming to and end, I look back on it fondly. It was a great year during which I learned a lot and discovered a few sofware gems, one of which is https://en.wikipedia.org/wiki/AsciiDoc[Asciidoc]. When you use Asciidoc to create documents you are https://medium.com/@chacon/living-the-future-of-technical-writing-2f368bd0a272#.ivrqucdon[Living the Future of Technical Writing]!
-----
-
-From within AsciidocFX, click on *HTML* (top right) and then select *Save*. File *index.html* will be created in the same folder as where file *index.adoc* reside.
-
-image::http://wfouche.github.io/Blog/2015-12-Asciidoc/AsciidocFX.png[]
-
-===  Publish blog
-Add (Stage) files index.adoc and index.html in SmartGit and then push them to Github.
-
-image::http://wfouche.github.io/Blog/2015-12-Asciidoc/SmartGit.png[]
-
-=== View blog
-Go to your specific Github Pages URL (for example http://wfouche.github.io) to view your latest blog updates. File *index.html* will be displayed by default.
-
-image::http://wfouche.github.io/Blog/2015-12-Asciidoc/BlogWebPage.png[]
-
-=== Additional information
-* http://mojavelinux.github.io/decks/discover-zen-writing-asciidoc/
-
-* http://asciidoctor.org/docs/asciidoc-writers-guide/
-
-* http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
-
-* https://leanpub.com/awesomeasciidoctornotebook/read
-
-* http://asciidoctor.org/news/2014/08/21/asciidoctorj-1-5-0-released/
-
-* https://bintray.com/asciidoctor/maven/asciidoctorj/view
-
-* http://www.asciidocfx.com/
-
-** http://www.asciidocfx.com/#trueplantuml-extension
-
-** http://www.asciidocfx.com/#truejavafx-charts-extension
-
-** http://www.asciidocfx.com/#trueditaa-extension
-
-** https://github.com/asciidocfx/AsciidocFX/releases
-
-* http://plantuml.com/
-
-* http://www.graphviz.org/
-
-* https://www.gliffy.com/
+:icons: font
 
 
+== Adventure in the Magic Kingdom - Cuộc phiêu lưu trong Vương quốc Ma thuật
+
+=== Vietnamese
+
+[cols="3*", options="header"]
+|===
+|Ngày xuất phát | Địa điểm | Sự kiện
+
+|1 Tháng 1, Năm mới | Làng Bình minh | Các nhân vật chính gặp nhau tại làng Bình minh, nơi cuộc phiêu lưu bắt đầu.
+|2 Tháng 1 | Rừng Xanh | Nhóm bước vào Rừng Xanh, nơi đầy rẫy sinh vật kỳ dị và nguy hiểm.
+|5 Tháng 1 | Ngọn núi Thần thánh | Nhóm đến ngọn núi Thần thánh để tìm kiếm viên ngọc huyền thoại.
+|10 Tháng 1 | Thành phố Pháo hoa | Các nhân vật tìm thấy viên ngọc, nhưng nó đã bị đánh cắp bởi kẻ thù.
+|15 Tháng 1 | Hoang mạc Hắc ám | Cuộc phiêu lưu tiếp tục đến Hoang mạc Hắc ám, nơi họ phải đối mặt với những thử thách mới.
+|20 Tháng 1 | Lâu đài Bóng đêm | Nhóm tiến vào lâu đài Bóng đêm để đối mặt với kẻ thù chính.
+|25 Tháng 1 | Chiến đấu cuối cùng | Cuộc chiến cuối cùng diễn ra tại Lâu đài Bóng đêm, và các nhân vật chiến thắng và giải cứu Vương quốc Ma thuật.
+
+|===
+
+=== English
+
+[cols="3*", options="header"]
+|===
+|Departure Date | Location | Event
+
+|January 1, New Year | Sunrise Village | The main characters meet at Sunrise Village, where the adventure begins.
+|January 2 | Green Forest | The group enters the Green Forest, a place filled with strange and dangerous creatures.
+|January 5 | Sacred Mountain | The group reaches the Sacred Mountain to search for the legendary gemstone.
+|January 10 | Fireworks City | The characters find the gemstone, but it gets stolen by enemies.
+|January 15 | Shadowy Desert | The adventure continues to the Shadowy Desert, where they face new challenges.
+|January 20 | Dark Castle | The group ventures into the Dark Castle to confront the main enemy.
+|January 25 | Final Battle | The ultimate battle takes place at the Dark Castle, and the characters emerge victorious, saving the Magic Kingdom.
+|===
 
 
+== Cuộc phiêu lưu vào Rừng Hoang dã - Adventure in the Wild Forest
 
+=== Vietnamese
 
+Hôm nay, một nhóm các anh hùng dũng cảm đã quyết định bước vào Rừng Hoang dã - một vùng đất huyền bí và nguy hiểm nằm sâu trong thung lũng. Họ bị mê hoặc bởi những câu chuyện về những kho báu cất giấu và những bí mật vĩ đại bị bỏ lại trong khu rừng.
 
+Khi nhóm tiến vào khu rừng, họ bắt gặp những con thú kỳ lạ và thú vị mà họ chưa từng thấy trước đây. Các nhân vật chính gồm có:
 
+. Anh hùng dũng cảm - một chiến binh mạnh mẽ và tài ba với khả năng chiến đấu vượt trội.
+. Pháp sư thần bí - một pháp sư tài ba có thể triệu hồi các lực lượng ma thuật để chiến đấu.
+. Kẻ trộm tinh quái - một tay trộm tài ba có thể vượt qua các bẫy và ẩn mình trong bóng đêm.
+. Tiên nữ bí ẩn - một tiên nữ có sức mạnh kỳ diệu và khả năng giao tiếp với thiên nhiên.
 
+Trong suốt cuộc phiêu lưu, nhóm phải đối mặt với nhiều thử thách và nguy hiểm. Họ gặp phải những con quái vật hung dữ, các bẫy nguy hiểm và những kẻ thù tàn bạo. Tuy nhiên, nhóm cũng có những trải nghiệm kỳ diệu khi khám phá những khu rừng rộng lớn, những thác nước tuyệt đẹp và những ngôi đền cổ kính.
 
+Cuối cùng, sau hàng ngày trải qua những thử thách và gian khổ, nhóm tìm thấy kho báu huyền thoại ở tận cùng rừng. Kho báu chứa đựng những vật phẩm giá trị và quyền năng vĩ đại. Nhóm quyết định chia sẻ những phần thưởng này với cả thung lũng và trở thành những anh hùng được ngợi khen.
 
+Nhưng cuộc phiêu lưu này không chỉ mang lại những phần thưởng vật chất, mà còn là những kỷ niệm đáng trân trọng về những gì họ đã trải qua cùng nhau. Họ học hỏi và trưởng thành thông qua những thử thách, và tình đoàn kết giữa họ càng trở nên mạnh mẽ hơn. Cuộc phiêu lưu trong Rừng Hoang dã đã để lại dấu ấn mãi mãi trong trái tim của các nhân vật chính và biến họ thành những huyền thoại sống đáng ngưỡng mộ.
 
-NOTE: An admonition draws the reader's attention to auxiliary information.
+=== English 
 
-Here are the other built-in admonition types:
+Today, a group of brave heroes decided to venture into the Wild Forest - a mysterious and dangerous land nestled deep within the valley. They were captivated by stories of hidden treasures and grand secrets left behind in the forest.
 
-IMPORTANT: Don't forget the children!
+As the group ventures into the forest, they encounter strange and fascinating creatures they have never seen before. The main characters include:
 
-TIP: Look for the warp zone under the bridge.
+. The Brave Warrior - a powerful and skilled warrior with superior combat abilities.
+. The Enigmatic Sorcerer - a talented sorcerer who can summon magical forces to fight.
+. The Mischievous Trickster - a skilled thief who can overcome traps and hide in the shadows.
+. The Mysterious Fairy - an enchanting fairy with magical powers and the ability to communicate with nature.
 
-CAUTION: Slippery when wet.
+Throughout the adventure, the group faces numerous challenges and dangers. They encounter ferocious monsters, dangerous traps, and ruthless enemies. However, they also experience magical moments as they explore vast forests, beautiful waterfalls, and ancient temples.
 
-WARNING: The software you're about to use is untested.
+In the end, after days of facing challenges and hardships, the group discovers the legendary treasure at the heart of the forest. The treasure contains valuable items and great powers. The group decides to share these rewards with the entire valley and become praised heroes.
 
-IMPORTANT: Sign off before stepping away from your computer.
-
-
-
-:toc!:
+But this adventure brings more than just material rewards; it leaves cherished memories of what they went through together. They learn and grow through challenges, and their bond becomes stronger. The adventure in the Wild Forest leaves an everlasting mark in the hearts of the main characters and turns them into admirable living legends.

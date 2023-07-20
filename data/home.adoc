@@ -3,10 +3,11 @@ Lucas - ngoclong.tran@vanilacorp.com - Version 1.0.0, 2023-07-01
 :sectnums:
 :toc: left
 :toclevels: 3
+:icons: font
 
 == Version History
 
-[width="100%",options="header",cols="1,5,1"]
+[width="100%",options="header",cols="1,4,2"]
 |====================
 | Version | Changes | Release Data(YYYY-MM-DD)  
 |1.0.0 
@@ -22,5 +23,8 @@ TIP: If have any question, you can contact email ngoclong.tran@vanilacorp.com
 
 == Vanila API Spec
 
+For more detail, please click link:ApiSpec/index.html[HERE]
 
 == Code Sample
+
+For more detail, please click link:CodeSample/demo.html[HERE]
