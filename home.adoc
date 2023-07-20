@@ -1,0 +1,26 @@
+= Lucas's Blog
+Lucas - ngoclong.tran@vanilacorp.com - Version 1.0.0, 2023-07-01
+:sectnums:
+:toc: left
+:toclevels: 3
+
+== Version History
+
+[width="100%",options="header",cols="1,5,1"]
+|====================
+| Version | Changes | Release Data(YYYY-MM-DD)  
+|1.0.0 
+|Release new version
+|2023-07-01
+|
+| 
+|
+|
+|====================
+
+TIP: If have any question, you can contact email ngoclong.tran@vanilacorp.com
+
+== Vanila API Spec
+
+
+== Code Sample
